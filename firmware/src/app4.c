@@ -70,7 +70,6 @@ Menu mainMenu = {
     .maxIndex = sizeof(mainMenuItems) / sizeof(MenuItem) - 1
 };
 
-
 void activateMenu( Menu * m ){
 
 }
