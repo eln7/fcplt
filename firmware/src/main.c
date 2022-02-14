@@ -16,8 +16,8 @@ int main ( void )
     }
     
     printf( "%08x-%08x\n", (NVM_START_ADDRESS & ~(0x200-1)) & 0x1FFFFFFF, (((NVM_START_ADDRESS + 0x40000) & ~(0x200-1))-1)  & 0x1FFFFFFF );
-    printf( " Flash Start(BMXPUPBA):%08x\n", BMXPUPBA);    
-    printf( " Flash Size(BMXPFMSZ):%08x\n", BMXPFMSZ);
+    printf( "Flash Start(BMXPUPBA):%08x\n", BMXPUPBA);    
+    printf( "Flash Size(BMXPFMSZ):%08x\n", BMXPFMSZ);
 
     printf("\nNVM %s", NVM_IsBusy()? "not Ready!!!\n": "is Ready\n");
     
