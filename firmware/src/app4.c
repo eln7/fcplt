@@ -21,6 +21,7 @@ MenuItem subMenuItems1[] = {
       {NULL, "Sub1 Item 8"}
 };
 
+
 MenuItem subMenuItems2[] = {
     {NULL, "(back)", &mainMenu, &Activate_Menu_Item}, 
     {&g_stValue[2], "Sub2 Item 1"},
@@ -67,7 +68,8 @@ Menu mainMenu = {
     .index = 0,
     .items = mainMenuItems,
     .maxIndex = sizeof(mainMenuItems) / sizeof(MenuItem) - 1
-} ;
+};
+
 
 void activateMenu( Menu * m ){
 
