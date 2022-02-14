@@ -1,0 +1,60 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: ocmp2}
+children:
+- type: Symbols
+  children:
+  - type: KeyValueSet
+    attributes: {id: OCMP_OCxCON_OC32}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '1'}
+  - type: KeyValueSet
+    attributes: {id: OCMP_OCxCON_OCM}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '6'}
+  - type: Long
+    attributes: {id: OCMP_OCxR}
+    children:
+    - type: Attributes
+      children:
+      - type: Long
+        attributes: {id: max}
+        children:
+        - {type: Value, value: '4294967295'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '10000'}
+  - type: Long
+    attributes: {id: OCMP_OCxRS}
+    children:
+    - type: Attributes
+      children:
+      - type: Long
+        attributes: {id: max}
+        children:
+        - {type: Value, value: '4294967295'}
+  - type: Comment
+    attributes: {id: OCMP_PERIOD_COMMENT}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+  - type: Hex
+    attributes: {id: OCxCON_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: ocmp2, value: '38'}
+- type: ElementPosition
+  attributes: {x: '550', y: '180', id: ocmp2}
