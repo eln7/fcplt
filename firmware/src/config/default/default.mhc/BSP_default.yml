@@ -3,4 +3,4 @@ type: UniqueComponent
 attributes: {id: BSP_default, bsp: 'true'}
 children:
 - type: ElementPosition
-  attributes: {x: '310', y: '560', id: BSP_default}
+  attributes: {x: '17', y: '112', id: BSP_default}

@@ -5,7 +5,7 @@ frameworkPath: R:\Users\elnour\Harmony3
 processor: PIC32MX695F512L
 projectName: fcplt
 settings:
-  PackageFilter: bootloader;bootloader_apps_i2c;bootloader_apps_sdcard;bootloader_apps_uart;bootloader_apps_usb;bsp;core;core_apps_pic32mx;crypto;crypto_apps_encrypt_decrypt;crypto_apps_large_hash;crypto_apps_speed_test;csp;csp_apps_pic32mx;net;net_apps_pic32mx;quick_docs;reference_apps;usb;wireless_wifi
+  PackageFilter: bootloader;bootloader_apps_i2c;bootloader_apps_sdcard;bootloader_apps_uart;bootloader_apps_usb;bsp;core;core_apps_pic32mx;crypto;crypto_apps_encrypt_decrypt;crypto_apps_large_hash;crypto_apps_speed_test;csp;csp_apps_pic32mx;gfx;net;net_apps_pic32mx;quick_docs;reference_apps;touch;usb;wireless_wifi
   FORCE_OPTIMIZATION: 'false'
   GENERATE_BACKUP: 'true'
   TRUSTZONE: 'false'

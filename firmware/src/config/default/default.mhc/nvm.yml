@@ -67,4 +67,4 @@ children:
         children:
         - {type: Value, value: drv_memory_MEMORY_dependency}
 - type: ElementPosition
-  attributes: {x: '19', y: '606', id: nvm}
+  attributes: {x: '11', y: '622', id: nvm}

@@ -80,9 +80,9 @@ void UART4_Initialize( void )
     /* Set up UxMODE bits */
     /* STSEL  = 0 */
     /* PDSEL = 0 */
-    /* UEN = 1 */
+    /* UEN = 0 */
 
-    U4MODE = 0x100;
+    U4MODE = 0x0;
 
     /* Enable UART4 Receiver and Transmitter */
     U4STASET = (_U4STA_UTXEN_MASK | _U4STA_URXEN_MASK | _U4STA_UTXISEL1_MASK );

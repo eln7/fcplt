@@ -129,4 +129,4 @@ children:
         children:
         - {type: Value, value: TMR1_TMR}
 - type: ElementPosition
-  attributes: {x: '30', y: '60', id: sys_time}
+  attributes: {x: '220', y: '135', id: sys_time}

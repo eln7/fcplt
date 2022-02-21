@@ -222,7 +222,7 @@ files:
   physicalPath: peripheral/pmp
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 8D60B8F210C8A095B1CDB1F3DE3429E9
+  userChecksum: CD18C122258E55BAF1287961726A16BE
 - generatedChecksum: 9DB9EC3970B22882794C716BF74ADD21
   logicalPath: config/default/peripheral/power
   name: plib_power.c
@@ -258,13 +258,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 2F4F8171185304BE6F6408906A73F9A8
-- generatedChecksum: D105C2D659E5E45D0F7C3C0B4846913F
+- generatedChecksum: C50CF9A5C3AD60905444270C3355B156
   logicalPath: config/default/peripheral/uart
   name: plib_uart4.c
   physicalPath: peripheral/uart
   security: NON_SECURE
   type: SOURCE
-  userChecksum: D105C2D659E5E45D0F7C3C0B4846913F
+  userChecksum: C50CF9A5C3AD60905444270C3355B156
 - generatedChecksum: E57AF2580EA0FD297CA3B4730328A18A
   logicalPath: FreeRTOS/Source/portable/MPLAB/PIC32MX
   name: port.c

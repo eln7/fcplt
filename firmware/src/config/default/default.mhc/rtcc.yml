@@ -68,4 +68,4 @@ children:
       - type: User
         attributes: {value: 'true'}
 - type: ElementPosition
-  attributes: {x: '550', y: '300', id: rtcc}
+  attributes: {x: '17', y: '517', id: rtcc}
