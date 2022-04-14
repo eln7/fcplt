@@ -56,6 +56,7 @@
 #include "peripheral/nvm/plib_nvm.h"
 #include "peripheral/ocmp/plib_ocmp3.h"
 #include "system/time/sys_time.h"
+#include "peripheral/coretimer/plib_coretimer.h"
 #include "driver/memory/drv_memory_nvm.h"
 #include "peripheral/uart/plib_uart4.h"
 #include "peripheral/uart/plib_uart1.h"

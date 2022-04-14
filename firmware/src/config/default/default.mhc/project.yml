@@ -125,27 +125,27 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 972E955D94A63BA89BF6ABD6AADB1023
-- generatedChecksum: F33BF88CBDBB3C52A7B6D73938FF72EF
+- generatedChecksum: 693E0E06653731852454C9674DEB66FA
   logicalPath: config/default
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: F33BF88CBDBB3C52A7B6D73938FF72EF
-- generatedChecksum: 07FFB5A44F545EB6AA3398996C38A0B6
+  userChecksum: 693E0E06653731852454C9674DEB66FA
+- generatedChecksum: 30A945B54BCF7126AFDE56558842AAC3
   logicalPath: config/default
   name: interrupts.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 07FFB5A44F545EB6AA3398996C38A0B6
-- generatedChecksum: 769479AFFDD94B15B5AC13FDEF3FAB30
+  userChecksum: 30A945B54BCF7126AFDE56558842AAC3
+- generatedChecksum: 22B98C477ACAD488E21D01EF161BCADB
   logicalPath: config/default
   name: interrupts_a.S
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 769479AFFDD94B15B5AC13FDEF3FAB30
+  userChecksum: 22B98C477ACAD488E21D01EF161BCADB
 - generatedChecksum: 3FEE521CEF14928AE38E7FA9BF6D75E6
   logicalPath: FreeRTOS/Source
   name: list.c
@@ -181,13 +181,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 30E769C32BB57DB903CEA5DA9D5C110E
-- generatedChecksum: C89D815416F2C24A4687560A460C7393
+- generatedChecksum: 2FEFEA0D4E94F5A5F3D76BAEC3D602E5
+  logicalPath: config/default/peripheral/coretimer
+  name: plib_coretimer.c
+  physicalPath: peripheral/coretimer
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 2FEFEA0D4E94F5A5F3D76BAEC3D602E5
+- generatedChecksum: 6E582C346E8FD89A251BBF6C8126F6F1
   logicalPath: config/default/peripheral/evic
   name: plib_evic.c
   physicalPath: peripheral/evic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: C89D815416F2C24A4687560A460C7393
+  userChecksum: 6E582C346E8FD89A251BBF6C8126F6F1
 - generatedChecksum: CA4D07F58AC1B4D86EE4D73F949D4319
   logicalPath: config/default/peripheral/gpio
   name: plib_gpio.c
@@ -384,13 +391,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 47B584985982B2FF32628D4CB874CB4D
-- generatedChecksum: DBC3FFA1F53A676024E28EEA2F25E2FE
+- generatedChecksum: 83BDE663A1AAB20C9E52263F22E2ED3C
   logicalPath: config/default/system/time
   name: sys_time.c
   physicalPath: system/time/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: DBC3FFA1F53A676024E28EEA2F25E2FE
+  userChecksum: 83BDE663A1AAB20C9E52263F22E2ED3C
 - generatedChecksum: 8B81F0A6F0FE445785DA6764E0337848
   logicalPath: config/default
   name: tasks.c
@@ -419,13 +426,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: AF3A8D8AA610E7DFD3E38DDAC5E42074
-- generatedChecksum: A93375CA6DA8570C9C7A83946D7C44FE
+- generatedChecksum: 8251D7870D5D167507A132269FBBA7DC
   logicalPath: config/default
   name: FreeRTOSConfig.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: A93375CA6DA8570C9C7A83946D7C44FE
+  userChecksum: 8251D7870D5D167507A132269FBBA7DC
 - generatedChecksum: CEF74FD3B70DA42045EB71BC81B5FACF
   logicalPath: FreeRTOS/Source/portable/MPLAB/PIC32MX
   name: ISR_Support.h
@@ -475,13 +482,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 32D95571A05B8DB274B2BAE82C1ACF13
-- generatedChecksum: 5C0DC92D2606133ECE272EB7AC7DFDD9
+- generatedChecksum: 396BF063E35A2C84C350D2F0B311E823
   logicalPath: config/default
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 5C0DC92D2606133ECE272EB7AC7DFDD9
+  userChecksum: 396BF063E35A2C84C350D2F0B311E823
 - generatedChecksum: 48B661D8C967C6BC397001F10FB43D1D
   logicalPath: FreeRTOS/Source/include
   name: croutine.h
@@ -489,13 +496,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 48B661D8C967C6BC397001F10FB43D1D
-- generatedChecksum: 234291EC1D6658B3F61C0501077D3838
+- generatedChecksum: 59C89C55018DA50E2F0556A1C52F8597
   logicalPath: config/default
   name: definitions.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 234291EC1D6658B3F61C0501077D3838
+  userChecksum: 59C89C55018DA50E2F0556A1C52F8597
 - generatedChecksum: 1EA4EDD5EA90F43EC407DE32441159A9
   logicalPath: FreeRTOS/Source/include
   name: deprecated_definitions.h
@@ -650,6 +657,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 7066CC390335CF75126E2A50C46E3BDD
+- generatedChecksum: 2712EE363EC8AC102002609F5B5F3DCF
+  logicalPath: config/default/peripheral/coretimer
+  name: plib_coretimer.h
+  physicalPath: peripheral/coretimer
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 2712EE363EC8AC102002609F5B5F3DCF
 - generatedChecksum: 7058E330A4A8EAA9FD2A9806E455FE1B
   logicalPath: config/default/peripheral/evic
   name: plib_evic.h
@@ -895,20 +909,20 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 466D676839280C0E7FC2CC6F78BA6EE9
-- generatedChecksum: 8DC356D2CAE8EB275CC79AF20A6196FC
+- generatedChecksum: 9463F9BBF69C9593FF3B30F8BC587234
   logicalPath: config/default/system/time
   name: sys_time_definitions.h
   physicalPath: system/time
   security: NON_SECURE
   type: HEADER
-  userChecksum: 8DC356D2CAE8EB275CC79AF20A6196FC
-- generatedChecksum: D0C1F2390BDD59E74ACC6ACDE6A1495C
+  userChecksum: 9463F9BBF69C9593FF3B30F8BC587234
+- generatedChecksum: 62F39464265EC34979649F761FB4FE57
   logicalPath: config/default/system/time
   name: sys_time_local.h
   physicalPath: system/time/src
   security: NON_SECURE
   type: HEADER
-  userChecksum: D0C1F2390BDD59E74ACC6ACDE6A1495C
+  userChecksum: 62F39464265EC34979649F761FB4FE57
 - generatedChecksum: BE95B4F134C5C929787B9DA6FDBF3501
   logicalPath: config/default/system
   name: system.h

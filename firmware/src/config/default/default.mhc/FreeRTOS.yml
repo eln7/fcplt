@@ -26,6 +26,13 @@ children:
         attributes: {id: FreeRTOS, value: 'true'}
       - type: User
         attributes: {value: 'false'}
+  - type: Boolean
+    attributes: {id: FREERTOS_INCLUDE_ETASKGETSTATE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
   - type: Integer
     attributes: {id: FREERTOS_PERIPHERAL_CLOCK_HZ}
     children:
@@ -115,4 +122,4 @@ children:
       - type: User
         attributes: {value: 'true'}
 - type: ElementPosition
-  attributes: {x: '320', y: '20', id: FreeRTOS}
+  attributes: {x: '313', y: '19', id: FreeRTOS}

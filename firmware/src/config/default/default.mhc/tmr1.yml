@@ -10,7 +10,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: tmr1, value: sys_time}
+        attributes: {id: tmr1, value: ''}
   - type: Hex
     attributes: {id: TCON_REG_VALUE}
     children:
@@ -58,7 +58,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: tmr1, value: '1.0'}
+        attributes: {id: tmr1, value: '0.3'}
       - type: User
         attributes: {value: '0.819212'}
   - type: KeyValueSet
@@ -68,20 +68,5 @@ children:
       children:
       - type: User
         attributes: {value: '1'}
-- type: Attachments
-  children:
-  - type: DirectCapability
-    attributes: {id: TMR1_TMR}
-    children:
-    - type: Attributes
-      children:
-      - type: String
-        attributes: {id: targetComponentID}
-        children:
-        - {type: Value, value: sys_time}
-      - type: String
-        attributes: {id: targetAttachmentID}
-        children:
-        - {type: Value, value: sys_time_TMR_dependency}
 - type: ElementPosition
   attributes: {x: '14', y: '181', id: tmr1}

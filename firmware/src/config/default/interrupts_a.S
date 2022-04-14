@@ -52,6 +52,37 @@
 #include <xc.h>
 #include "ISR_Support.h"
 
+   .extern  CORE_TIMER_Handler
+
+   .section .vector_0,code, keep
+   .equ     __vector_dispatch_0, IntVectorCORE_TIMER_Handler
+   .global  __vector_dispatch_0
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  IntVectorCORE_TIMER_Handler
+
+IntVectorCORE_TIMER_Handler:
+    la    $26,  _CORE_TIMER_Handler
+    jr    $26
+    nop
+    .end    IntVectorCORE_TIMER_Handler
+
+   .section .CORE_TIMER_Handler_vector_text, code, keep
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  _CORE_TIMER_Handler
+
+_CORE_TIMER_Handler:
+    portSAVE_CONTEXT
+    la    s6,  CORE_TIMER_Handler
+    jalr  s6
+    nop
+    portRESTORE_CONTEXT
+    .end    _CORE_TIMER_Handler
    .extern  TIMER_2_Handler
 
    .section .vector_8,code, keep

@@ -61,6 +61,7 @@
 // *****************************************************************************
 
 
+void CORE_TIMER_InterruptHandler( void );
 void TIMER_2_InterruptHandler( void );
 void UART_1_InterruptHandler( void );
 void CHANGE_NOTICE_InterruptHandler( void );
@@ -69,6 +70,11 @@ void NVM_InterruptHandler( void );
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
+void CORE_TIMER_Handler (void)
+{
+    CORE_TIMER_InterruptHandler();
+}
+
 
 
 void TIMER_2_Handler (void)
