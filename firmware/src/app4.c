@@ -174,13 +174,31 @@ void LCD_Render( void )
     
     app4Data.count3 = (unsigned int)rand() % 1150000;
  
-    char buff[64];
-    time_t current_time = time(NULL);
+    char buff[128] = {0,};
+    time_t current_time =  time(NULL);
+    //printf("ctime: %s\n", ctime(&current_time));
+    //ctime(&current_time);
     
-    strftime(buff, sizeof (buff), "%H:%M:%S", gmtime(&current_time));
+    struct tm * tm_gtime = gmtime(&current_time);
+    //strftime(buff, sizeof(buff), "%S", tm_gtime);
+    sprintf(buff, "strftime: %u:%u:%u\n", tm_gtime->tm_hour, tm_gtime->tm_min, tm_gtime->tm_sec);
+
+    //printf( "CORETIMER_FrequencyGet: %u\n", CORETIMER_FrequencyGet());
+    //printf( "sizeof(buff): %u\n", sizeof(buff));
+    //printf( "current_time: %u\n", current_time);
+    
+    
+    
 
     LCD_Move(0,0);
-    sprintf( buf, "%s ",buff);
+    sprintf(buf, "%.02u:%.02u:%.02u, tasks: %u", 
+            tm_gtime->tm_hour, 
+            tm_gtime->tm_min, 
+            tm_gtime->tm_sec, 
+            uxTaskGetNumberOfTasks( )
+    );
+    
+    //sprintf( buf, "%s", buff);
     LCD_WriteString(buf);
     
     LCD_Move(1,0);
