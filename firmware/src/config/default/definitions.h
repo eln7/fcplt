@@ -61,8 +61,13 @@
 #include "peripheral/uart/plib_uart4.h"
 #include "peripheral/uart/plib_uart1.h"
 #include "peripheral/tmr/plib_tmr2.h"
+#include "peripheral/tmr/plib_tmr3.h"
 #include "peripheral/tmr1/plib_tmr1.h"
+#include "peripheral/spi/spi_master/plib_spi1_master.h"
+#include "driver/spi/drv_spi.h"
 #include "system/int/sys_int.h"
+#include "system/ports/sys_ports.h"
+#include "system/dma/sys_dma.h"
 #include "system/reset/sys_reset.h"
 #include "osal/osal.h"
 #include "system/debug/sys_debug.h"
@@ -215,6 +220,9 @@ typedef struct
     SYS_MODULE_OBJ  sysTime;
     SYS_MODULE_OBJ  drvMemory0;
     SYS_MODULE_OBJ  sysConsole0;
+
+    /* SPI0 Driver Object */
+    SYS_MODULE_OBJ drvSPI0;
 
     SYS_MODULE_OBJ  sysDebug;
 

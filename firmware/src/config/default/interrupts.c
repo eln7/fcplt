@@ -63,6 +63,8 @@
 
 void CORE_TIMER_InterruptHandler( void );
 void TIMER_2_InterruptHandler( void );
+void TIMER_3_InterruptHandler( void );
+void SPI_1_InterruptHandler( void );
 void UART_1_InterruptHandler( void );
 void CHANGE_NOTICE_InterruptHandler( void );
 void NVM_InterruptHandler( void );
@@ -80,6 +82,16 @@ void CORE_TIMER_Handler (void)
 void TIMER_2_Handler (void)
 {
     TIMER_2_InterruptHandler();
+}
+
+void TIMER_3_Handler (void)
+{
+    TIMER_3_InterruptHandler();
+}
+
+void SPI_1_Handler (void)
+{
+    SPI_1_InterruptHandler();
 }
 
 void UART_1_Handler (void)

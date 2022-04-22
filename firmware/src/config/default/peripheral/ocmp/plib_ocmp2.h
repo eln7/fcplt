@@ -117,10 +117,10 @@ void OCMP2_Disable (void);
 
 
 
-uint32_t OCMP2_CompareValueGet (void);
+uint16_t OCMP2_CompareValueGet (void);
 
-uint32_t OCMP2_CompareSecondaryValueGet (void);
-void OCMP2_CompareSecondaryValueSet (uint32_t value);
+uint16_t OCMP2_CompareSecondaryValueGet (void);
+void OCMP2_CompareSecondaryValueSet (uint16_t value);
 
 
 // DOM-IGNORE-BEGIN

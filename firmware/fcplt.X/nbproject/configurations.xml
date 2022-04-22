@@ -26,6 +26,10 @@
               <itemPath>../src/config/default/driver/memory/drv_memory_definitions.h</itemPath>
               <itemPath>../src/config/default/driver/memory/drv_memory_nvm.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f2" displayName="spi" projectFiles="true">
+              <itemPath>../src/config/default/driver/spi/drv_spi.h</itemPath>
+              <itemPath>../src/config/default/driver/spi/drv_spi_definitions.h</itemPath>
+            </logicalFolder>
             <itemPath>../src/config/default/driver/driver.h</itemPath>
             <itemPath>../src/config/default/driver/driver_common.h</itemPath>
           </logicalFolder>
@@ -67,9 +71,16 @@
             <logicalFolder name="f12" displayName="rtcc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/rtcc/plib_rtcc.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f14" displayName="spi" projectFiles="true">
+              <logicalFolder name="f1" displayName="spi_master" projectFiles="true">
+                <itemPath>../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h</itemPath>
+                <itemPath>../src/config/default/peripheral/spi/spi_master/plib_spi1_master.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
             <logicalFolder name="f5" displayName="tmr" projectFiles="true">
               <itemPath>../src/config/default/peripheral/tmr/plib_tmr_common.h</itemPath>
               <itemPath>../src/config/default/peripheral/tmr/plib_tmr2.h</itemPath>
+              <itemPath>../src/config/default/peripheral/tmr/plib_tmr3.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f6" displayName="tmr1" projectFiles="true">
               <itemPath>../src/config/default/peripheral/tmr1/plib_tmr1_common.h</itemPath>
@@ -91,6 +102,10 @@
             <logicalFolder name="f4" displayName="debug" projectFiles="true">
               <itemPath>../src/config/default/system/debug/sys_debug.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f9" displayName="dma" projectFiles="true">
+              <itemPath>../src/config/default/system/dma/sys_dma.h</itemPath>
+              <itemPath>../src/config/default/system/dma/sys_dma_mapping.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f6" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
                 <logicalFolder name="f1" displayName="file_system" projectFiles="true">
@@ -110,6 +125,10 @@
             <logicalFolder name="f2" displayName="int" projectFiles="true">
               <itemPath>../src/config/default/system/int/sys_int.h</itemPath>
               <itemPath>../src/config/default/system/int/sys_int_mapping.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f8" displayName="ports" projectFiles="true">
+              <itemPath>../src/config/default/system/ports/sys_ports.h</itemPath>
+              <itemPath>../src/config/default/system/ports/sys_ports_mapping.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="reset" projectFiles="true">
               <itemPath>../src/config/default/system/reset/sys_reset.h</itemPath>
@@ -192,6 +211,10 @@
               <itemPath>../src/config/default/driver/memory/src/drv_memory_file_system.c</itemPath>
               <itemPath>../src/config/default/driver/memory/src/drv_memory_nvm.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="f2" displayName="spi" projectFiles="true">
+              <itemPath>../src/config/default/driver/spi/src/drv_spi.c</itemPath>
+              <itemPath>../src/config/default/driver/spi/src/drv_spi_local.h</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f5" displayName="osal" projectFiles="true">
             <itemPath>../src/config/default/osal/osal_freertos.c</itemPath>
@@ -228,8 +251,14 @@
             <logicalFolder name="f12" displayName="rtcc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/rtcc/plib_rtcc.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="f14" displayName="spi" projectFiles="true">
+              <logicalFolder name="f1" displayName="spi_master" projectFiles="true">
+                <itemPath>../src/config/default/peripheral/spi/spi_master/plib_spi1_master.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
             <logicalFolder name="f5" displayName="tmr" projectFiles="true">
               <itemPath>../src/config/default/peripheral/tmr/plib_tmr2.c</itemPath>
+              <itemPath>../src/config/default/peripheral/tmr/plib_tmr3.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f6" displayName="tmr1" projectFiles="true">
               <itemPath>../src/config/default/peripheral/tmr1/plib_tmr1.c</itemPath>
@@ -256,6 +285,9 @@
             <logicalFolder name="f6" displayName="debug" projectFiles="true">
               <itemPath>../src/config/default/system/debug/src/sys_debug_local.h</itemPath>
               <itemPath>../src/config/default/system/debug/src/sys_debug.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f8" displayName="dma" projectFiles="true">
+              <itemPath>../src/config/default/system/dma/sys_dma.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f7" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
@@ -328,6 +360,7 @@
         <itemPath>../src/config/default/default.mhc/core_timer.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/dfp.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/drv_memory.yml</itemPath>
+        <itemPath>../src/config/default/default.mhc/drv_spi.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/FreeRTOS.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/GraphSettings.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/HarmonyCore.yml</itemPath>
@@ -339,6 +372,7 @@
         <itemPath>../src/config/default/default.mhc/project.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/rtcc.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/settings.yml</itemPath>
+        <itemPath>../src/config/default/default.mhc/spi1.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/stdio.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/sys_command.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/sys_console.yml</itemPath>
@@ -347,6 +381,7 @@
         <itemPath>../src/config/default/default.mhc/sys_time.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/tmr1.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/tmr2.yml</itemPath>
+        <itemPath>../src/config/default/default.mhc/tmr3.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/uart1.yml</itemPath>
         <itemPath>../src/config/default/default.mhc/uart4.yml</itemPath>
       </logicalFolder>
@@ -509,13 +544,13 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="12288"/>
+        <property key="heap-size" value="1024"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
-        <property key="no-device-startup-code" value="false"/>
+        <property key="no-device-startup-code" value="true"/>
         <property key="no-startup-files" value="false"/>
         <property key="oXC32ld-extra-opts" value=""/>
         <property key="optimization-level" value=""/>
@@ -621,6 +656,7 @@
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

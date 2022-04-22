@@ -89,6 +89,15 @@
 #define GPIO_RG8_Get()               ((PORTG >> 8) & 0x1)
 #define GPIO_RG8_PIN                  GPIO_PIN_RG8
 
+/*** Macros for GPIO_RE9 pin ***/
+#define GPIO_RE9_Set()               (LATESET = (1<<9))
+#define GPIO_RE9_Clear()             (LATECLR = (1<<9))
+#define GPIO_RE9_Toggle()            (LATEINV= (1<<9))
+#define GPIO_RE9_OutputEnable()      (TRISECLR = (1<<9))
+#define GPIO_RE9_InputEnable()       (TRISESET = (1<<9))
+#define GPIO_RE9_Get()               ((PORTE >> 9) & 0x1)
+#define GPIO_RE9_PIN                  GPIO_PIN_RE9
+
 
 // *****************************************************************************
 /* GPIO Port

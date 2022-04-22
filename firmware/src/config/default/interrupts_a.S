@@ -114,6 +114,68 @@ _TIMER_2_Handler:
     nop
     portRESTORE_CONTEXT
     .end    _TIMER_2_Handler
+   .extern  TIMER_3_Handler
+
+   .section .vector_12,code, keep
+   .equ     __vector_dispatch_12, IntVectorTIMER_3_Handler
+   .global  __vector_dispatch_12
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  IntVectorTIMER_3_Handler
+
+IntVectorTIMER_3_Handler:
+    la    $26,  _TIMER_3_Handler
+    jr    $26
+    nop
+    .end    IntVectorTIMER_3_Handler
+
+   .section .TIMER_3_Handler_vector_text, code, keep
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  _TIMER_3_Handler
+
+_TIMER_3_Handler:
+    portSAVE_CONTEXT
+    la    s6,  TIMER_3_Handler
+    jalr  s6
+    nop
+    portRESTORE_CONTEXT
+    .end    _TIMER_3_Handler
+   .extern  SPI_1_Handler
+
+   .section .vector_23,code, keep
+   .equ     __vector_dispatch_23, IntVectorSPI_1_Handler
+   .global  __vector_dispatch_23
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  IntVectorSPI_1_Handler
+
+IntVectorSPI_1_Handler:
+    la    $26,  _SPI_1_Handler
+    jr    $26
+    nop
+    .end    IntVectorSPI_1_Handler
+
+   .section .SPI_1_Handler_vector_text, code, keep
+   .set     nomicromips
+   .set     noreorder
+   .set     nomips16
+   .set     noat
+   .ent  _SPI_1_Handler
+
+_SPI_1_Handler:
+    portSAVE_CONTEXT
+    la    s6,  SPI_1_Handler
+    jalr  s6
+    nop
+    portRESTORE_CONTEXT
+    .end    _SPI_1_Handler
    .extern  UART_1_Handler
 
    .section .vector_24,code, keep

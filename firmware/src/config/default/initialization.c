@@ -131,6 +131,58 @@ const DRV_MEMORY_INIT drvMemory0InitData =
 };
 
 // </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="DRV_SPI Instance 0 Initialization Data">
+
+/* SPI Client Objects Pool */
+static DRV_SPI_CLIENT_OBJ drvSPI0ClientObjPool[DRV_SPI_CLIENTS_NUMBER_IDX0];
+
+/* SPI PLIB Interface Initialization */
+const DRV_SPI_PLIB_INTERFACE drvSPI0PlibAPI = {
+
+    /* SPI PLIB Setup */
+    .setup = (DRV_SPI_PLIB_SETUP)SPI1_TransferSetup,
+
+    /* SPI PLIB WriteRead function */
+    .writeRead = (DRV_SPI_PLIB_WRITE_READ)SPI1_WriteRead,
+
+    /* SPI PLIB Transfer Status function */
+    .isBusy = (DRV_SPI_PLIB_IS_BUSY)SPI1_IsBusy,
+
+    /* SPI PLIB Callback Register */
+    .callbackRegister = (DRV_SPI_PLIB_CALLBACK_REGISTER)SPI1_CallbackRegister,
+};
+
+const uint32_t drvSPI0remapDataBits[]= { 0x00000000, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000400 };
+const uint32_t drvSPI0remapClockPolarity[] = { 0x00000000, 0x00000040 };
+const uint32_t drvSPI0remapClockPhase[] = { 0x00000000, 0x00000100 };
+
+/* SPI Driver Initialization Data */
+const DRV_SPI_INIT drvSPI0InitData =
+{
+    /* SPI PLIB API */
+    .spiPlib = &drvSPI0PlibAPI,
+
+    .remapDataBits = drvSPI0remapDataBits,
+
+    .remapClockPolarity = drvSPI0remapClockPolarity,
+
+    .remapClockPhase = drvSPI0remapClockPhase,
+
+    /* SPI Number of clients */
+    .numClients = DRV_SPI_CLIENTS_NUMBER_IDX0,
+
+    /* SPI Client Objects Pool */
+    .clientObjPool = (uintptr_t)&drvSPI0ClientObjPool[0],
+
+    /* DMA Channel for Transmit */
+    .dmaChannelTransmit = SYS_DMA_CHANNEL_NONE,
+
+    /* DMA Channel for Receive */
+    .dmaChannelReceive  = SYS_DMA_CHANNEL_NONE,
+
+};
+
+// </editor-fold>
 
 
 // *****************************************************************************
@@ -348,7 +400,11 @@ void SYS_Initialize ( void* data )
 
     TMR2_Initialize();
 
+    TMR3_Initialize();
+
     TMR1_Initialize();
+
+	SPI1_Initialize();
 
     PMP_Initialize();
 
@@ -356,6 +412,8 @@ void SYS_Initialize ( void* data )
 
     sysObj.drvMemory0 = DRV_MEMORY_Initialize((SYS_MODULE_INDEX)DRV_MEMORY_INDEX_0, (SYS_MODULE_INIT *)&drvMemory0InitData);
 
+    /* Initialize SPI0 Driver Instance */
+    sysObj.drvSPI0 = DRV_SPI_Initialize(DRV_SPI_INDEX_0, (SYS_MODULE_INIT *)&drvSPI0InitData);
 
     sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
     sysObj.sysConsole0 = SYS_CONSOLE_Initialize(SYS_CONSOLE_INDEX_0, (SYS_MODULE_INIT *)&sysConsole0Init);

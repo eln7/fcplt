@@ -1,6 +1,7 @@
 #include "app4.h"
 
 APP4_DATA app4Data;
+DRV_HANDLE spi1 =  DRV_HANDLE_INVALID;
 
 stSysValue g_stValue[] = {
     [0] = {.m_iDefault = 0, .m_iCurrent = 4, .m_iSet = 8, .m_iMin = 0, .m_iMax = 100, "%d"},
@@ -74,6 +75,24 @@ void activateMenu( Menu * m ){
 
 }
 
+void MCP492XanalogWrite(
+  bool odd, bool buffered, bool gain, bool active, unsigned int value) 
+{
+  
+  unsigned char configBits = odd << 3 | buffered << 2 | gain << 1 | active;
+
+  // Compose the first byte to send to the DAC:
+  // the 4 control bits, and the 4 most significant bits of the value
+  unsigned char firstByte = configBits << 4 | (value & 0xF00) >> 8;
+  // Second byte is the lower 8 bits of the value
+  unsigned char secondByte = value & 0xFF;
+  
+  unsigned char data[2];
+  data[0] = firstByte;
+  data[1] = secondByte;
+  DRV_SPI_WriteTransfer(spi1, data, 2 );
+}
+
 void APP4_Initialize ( void )
 {
     //uint32_t value = ADC_ResultGet(ADC_INPUT_POSITIVE_AN0);
@@ -107,6 +126,18 @@ void APP4_Tasks ( void )
             LCD_Setup();
             srand(ADC_ResultGet(1));
             OCMP2_Enable();
+            //SPI1_Enable();
+            spi1 = DRV_SPI_Open( 0, DRV_IO_INTENT_EXCLUSIVE);
+            
+            DRV_SPI_TRANSFER_SETUP setup;
+
+            setup.baudRateInHz = 1000000;
+            setup.clockPhase = DRV_SPI_CLOCK_PHASE_VALID_LEADING_EDGE;
+            setup.clockPolarity = DRV_SPI_CLOCK_POLARITY_IDLE_LOW;
+            setup.dataBits = DRV_SPI_DATA_BITS_8;
+            setup.chipSelect = GPIO_PIN_RE9;
+            setup.csPolarity = DRV_SPI_CS_POLARITY_ACTIVE_LOW;
+            DRV_SPI_TransferSetup ( spi1, &setup );
             //app4Data.menuMutex = xSemaphoreCreateMutex();
             //app4Data.state = APP4_STATE_RENDER_MENU;
             app4Data.state = APP4_STATE_SERVICE_TASKS;
@@ -180,24 +211,20 @@ void LCD_Render( void )
     //ctime(&current_time);
     
     struct tm * tm_gtime = gmtime(&current_time);
-    //strftime(buff, sizeof(buff), "%S", tm_gtime);
-    sprintf(buff, "strftime: %u:%u:%u\n", tm_gtime->tm_hour, tm_gtime->tm_min, tm_gtime->tm_sec);
-
+    // strftime(buff, sizeof(buff), "%H:%M:%S", tm_gtime);
+    //printf("strftime: %u:%u:%u\n", tm_gtime->tm_hour, tm_gtime->tm_min, tm_gtime->tm_sec);
     //printf( "CORETIMER_FrequencyGet: %u\n", CORETIMER_FrequencyGet());
     //printf( "sizeof(buff): %u\n", sizeof(buff));
     //printf( "current_time: %u\n", current_time);
-    
-    
-    
 
     LCD_Move(0,0);
     sprintf(buf, "%.02u:%.02u:%.02u, tasks: %u", 
             tm_gtime->tm_hour, 
             tm_gtime->tm_min, 
             tm_gtime->tm_sec, 
-            uxTaskGetNumberOfTasks( )
+            uxTaskGetNumberOfTasks()
     );
-    
+
     //sprintf( buf, "%s", buff);
     LCD_WriteString(buf);
     
@@ -245,9 +272,19 @@ void LCD_Render( void )
     }*/
     //printf("\n");
     
-    OCMP2_CompareSecondaryValueSet(5000);
-
-/*    if(!(app4Data.erase_screen--)){
+    OCMP2_CompareSecondaryValueSet(app4Data.menu->index*10);
+    
+    MCP492XanalogWrite( 0, 0, 0, 1, app4Data.menu->index*10);
+    
+    
+    
+/*    if(!SPI1_IsBusy()){
+        printf("SPI1 is not busy\n");
+        
+    }*/
+        //MCP492XanalogWrite( 0, 0, 0, 1, 2048);
+    
+            /*    if(!(app4Data.erase_screen--)){
         LCD_Clear();
         //app4Data.erase_screen = ((unsigned int)rand() % 50 ) + 1;
         app4Data.erase_screen = 99;
