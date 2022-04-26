@@ -4,6 +4,43 @@ attributes: {id: tmr3}
 children:
 - type: Symbols
   children:
+  - type: Hex
+    attributes: {id: TCON_REG_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tmr3, value: '64'}
+  - type: Integer
+    attributes: {id: TIMER_CLOCK_FREQ}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tmr3, value: '1250000'}
+  - type: Long
+    attributes: {id: TIMER_PERIOD}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tmr3, value: '374'}
+  - type: KeyValueSet
+    attributes: {id: TIMER_PRE_SCALER}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '3'}
+  - type: Float
+    attributes: {id: TIMER_TIME_PERIOD_MS}
+    children:
+    - type: Attributes
+      children:
+      - type: Float
+        attributes: {id: max}
+        children:
+        - {type: Value, value: '52.4296'}
   - type: Boolean
     attributes: {id: TMR_INTERRUPT_MODE}
     children:
@@ -11,5 +48,12 @@ children:
       children:
       - type: Dynamic
         attributes: {id: tmr3, value: 'true'}
+  - type: Integer
+    attributes: {id: TMR_PRESCALER_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tmr3, value: '16'}
 - type: ElementPosition
   attributes: {x: '30', y: '720', id: tmr3}

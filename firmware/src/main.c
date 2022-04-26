@@ -7,8 +7,8 @@ int main ( void )
 {
     SYS_Initialize ( NULL );
 
-    //TMR1_Start();
-    //TMR2_Start();
+    TMR1_Start();
+    TMR2_Start();
 
     if (SYS_TIME_Status (sysObj.sysTime) == SYS_STATUS_READY){
         printf("\n\nTime system service is ready.\n");

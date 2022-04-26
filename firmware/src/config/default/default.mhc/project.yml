@@ -223,13 +223,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 8568726E192BDC82F8D5ADA9539DAD3F
-- generatedChecksum: 0E16C7CC703F46E4F33D38A715F3E97E
+- generatedChecksum: EA69D8020C1C47BF875EE540060FC710
   logicalPath: config\default\peripheral\ocmp
   name: plib_ocmp2.c
   physicalPath: peripheral\ocmp
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 0E16C7CC703F46E4F33D38A715F3E97E
+  userChecksum: EA69D8020C1C47BF875EE540060FC710
 - generatedChecksum: 43047C3D9C3D1FFC6FCBC36BE0BB0927
   logicalPath: config\default\peripheral\ocmp
   name: plib_ocmp3.c
@@ -279,13 +279,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: C5FCFC670BDA73BBC2C67FD79A1F918B
-- generatedChecksum: 033C0A20EB8A748C67F2E1ADC8F5A1BF
+- generatedChecksum: 64F782EA0C9869A11614F6E80336CE2A
   logicalPath: config\default\peripheral\tmr
   name: plib_tmr3.c
   physicalPath: peripheral\tmr
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 033C0A20EB8A748C67F2E1ADC8F5A1BF
+  userChecksum: 64F782EA0C9869A11614F6E80336CE2A
 - generatedChecksum: 2F4F8171185304BE6F6408906A73F9A8
   logicalPath: config\default\peripheral\uart
   name: plib_uart1.c

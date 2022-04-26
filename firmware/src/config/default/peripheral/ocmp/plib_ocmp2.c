@@ -53,11 +53,11 @@ void OCMP2_Initialize (void)
 {
     /*Setup OC2CON        */
     /*OCM         = 6        */
-    /*OCTSEL       = 1        */
+    /*OCTSEL       = 0        */
     /*OC32         = 0        */
     /*SIDL         = false    */
 
-    OC2CON = 0xe;
+    OC2CON = 0x6;
 
     OC2R = 10000;
     OC2RS = 10000;

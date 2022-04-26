@@ -131,7 +131,7 @@ void APP4_Tasks ( void )
             
             DRV_SPI_TRANSFER_SETUP setup;
 
-            setup.baudRateInHz = 1000000;
+            setup.baudRateInHz = 2000000;
             setup.clockPhase = DRV_SPI_CLOCK_PHASE_VALID_LEADING_EDGE;
             setup.clockPolarity = DRV_SPI_CLOCK_POLARITY_IDLE_LOW;
             setup.dataBits = DRV_SPI_DATA_BITS_8;
@@ -272,9 +272,9 @@ void LCD_Render( void )
     }*/
     //printf("\n");
     
-    OCMP2_CompareSecondaryValueSet(app4Data.menu->index*10);
+    OCMP2_CompareSecondaryValueSet(5000);
     
-    MCP492XanalogWrite( 0, 0, 0, 1, app4Data.menu->index*10);
+    MCP492XanalogWrite( 0, 0, 1, 1, app4Data.menu->index);
     
     
     
