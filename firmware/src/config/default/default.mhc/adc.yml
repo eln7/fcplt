@@ -27,10 +27,16 @@ children:
   - type: KeyValueSet
     attributes: {id: AD1CHS__CH0SA}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
     - type: Values
       children:
       - type: User
-        attributes: {value: '1'}
+        attributes: {value: '0'}
   - type: KeyValueSet
     attributes: {id: AD1CHS__CH0SB}
     children:
@@ -130,6 +136,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_0}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -137,6 +149,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_1}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -144,6 +162,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_10}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -151,6 +175,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_11}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -158,6 +188,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_12}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -165,6 +201,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_13}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -172,6 +214,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_14}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -179,6 +227,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_15}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -186,6 +240,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_2}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -193,6 +253,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_3}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -200,6 +266,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_4}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -207,6 +279,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_5}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -214,6 +292,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_6}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -221,6 +305,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_7}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -228,6 +318,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_8}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -235,6 +331,12 @@ children:
   - type: Boolean
     attributes: {id: AD1CSSL__CSSL_9}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
       - type: User
@@ -245,7 +347,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: adc, value: '16842752'}
+        attributes: {id: adc, value: '16777216'}
   - type: Hex
     attributes: {id: ADC_AD1CON1}
     children:

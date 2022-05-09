@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<project>                                  
+  <executable name=".ca/dist/Config_1/production/fcplt.X.production.elf">                 
+    <memory name="program">                 
+      <units>bytes</units>                 
+      <length>531968</length>                 
+      <used>79728</used>                     
+      <free>452240</free>                     
+    </memory>                              
+    <memory name="data">              
+      <units>bytes</units>                 
+      <length>131072</length>                 
+      <used>34596</used>                     
+      <free>96476</free>                     
+    </memory>                              
+  </executable>                            
+</project>                                 

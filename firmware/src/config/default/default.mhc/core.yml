@@ -1088,21 +1088,21 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: 'true'}
+        attributes: {id: core, value: 'false'}
   - type: Boolean
     attributes: {id: EVIC_44_HANDLER_LOCK}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: 'true'}
+        attributes: {id: core, value: 'false'}
   - type: String
     attributes: {id: EVIC_44_INTERRUPT_HANDLER}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: NVM_InterruptHandler}
+        attributes: {id: core, value: FCE_Handler}
   - type: Boolean
     attributes: {id: EVIC_48_ENABLE}
     children:
@@ -1229,6 +1229,15 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: TIMER_2_InterruptHandler}
+  - type: File
+    attributes: {id: EVIC_INT_ASM}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
   - type: Combo
     attributes: {id: EVIC_PRIORITY_1ATTRIBUTE}
     children:
@@ -1286,33 +1295,12 @@ children:
       - type: Dynamic
         attributes: {id: core, value: 'false'}
   - type: Boolean
-    attributes: {id: FCE_INTERRUPT_ENABLE}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: nvm, value: 'true'}
-  - type: Boolean
     attributes: {id: FCE_INTERRUPT_ENABLE_UPDATE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: 'false'}
-  - type: String
-    attributes: {id: FCE_INTERRUPT_HANDLER}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: nvm, value: NVM_InterruptHandler}
-  - type: Boolean
-    attributes: {id: FCE_INTERRUPT_HANDLER_LOCK}
-    children:
-    - type: Values
-      children:
-      - type: Dynamic
-        attributes: {id: nvm, value: 'true'}
+        attributes: {id: core, value: 'true'}
   - type: Integer
     attributes: {id: I2C1_CLOCK_FREQUENCY}
     children:

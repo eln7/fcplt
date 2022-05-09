@@ -54,6 +54,12 @@ children:
   - type: KeyValueSet
     attributes: {id: UART_OPERATING_MODE}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: readOnly}
+        children:
+        - {type: Value, value: 'true'}
     - type: Values
       children:
       - type: Dynamic
@@ -65,6 +71,24 @@ children:
       children:
       - type: Dynamic
         attributes: {id: uart1, value: 'true'}
+  - type: Comment
+    attributes: {id: UART_RING_BUFFER_SIZE_CONFIG}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+  - type: Integer
+    attributes: {id: UART_RX_RING_BUFFER_SIZE}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
   - type: File
     attributes: {id: UART_SOURCE}
     children:
@@ -74,6 +98,15 @@ children:
         attributes: {id: source}
         children:
         - {type: Value, value: ../peripheral/uart_00734/templates/plib_uart_ring_buffer.c.ftl}
+  - type: Integer
+    attributes: {id: UART_TX_RING_BUFFER_SIZE}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
   - type: Hex
     attributes: {id: UMODE_VALUE}
     children:

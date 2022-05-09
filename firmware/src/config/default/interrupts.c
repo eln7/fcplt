@@ -67,7 +67,6 @@ void TIMER_3_InterruptHandler( void );
 void SPI_1_InterruptHandler( void );
 void UART_1_InterruptHandler( void );
 void CHANGE_NOTICE_InterruptHandler( void );
-void NVM_InterruptHandler( void );
 
 
 
@@ -102,11 +101,6 @@ void UART_1_Handler (void)
 void CHANGE_NOTICE_Handler (void)
 {
     CHANGE_NOTICE_InterruptHandler();
-}
-
-void FCE_Handler (void)
-{
-    NVM_InterruptHandler();
 }
 
 

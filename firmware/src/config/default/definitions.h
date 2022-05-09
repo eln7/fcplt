@@ -50,14 +50,11 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "bsp/bsp.h"
-#include "driver/memory/drv_memory.h"
 #include "peripheral/adc/plib_adc.h"
 #include "peripheral/ocmp/plib_ocmp2.h"
-#include "peripheral/nvm/plib_nvm.h"
 #include "peripheral/ocmp/plib_ocmp3.h"
 #include "system/time/sys_time.h"
 #include "peripheral/coretimer/plib_coretimer.h"
-#include "driver/memory/drv_memory_nvm.h"
 #include "peripheral/uart/plib_uart4.h"
 #include "peripheral/uart/plib_uart1.h"
 #include "peripheral/tmr/plib_tmr2.h"
@@ -76,12 +73,6 @@
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/evic/plib_evic.h"
 #include "peripheral/power/plib_power.h"
-#include "system/fs/sys_fs.h"
-#include "system/fs/sys_fs_media_manager.h"
-#include "system/fs/sys_fs_fat_interface.h"
-#include "system/fs/fat_fs/file_system/ff.h"
-#include "system/fs/fat_fs/file_system/ffconf.h"
-#include "system/fs/fat_fs/hardware_access/diskio.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_uart_definitions.h"
 #include "FreeRTOS.h"
@@ -218,7 +209,6 @@ Remarks:
 typedef struct
 {
     SYS_MODULE_OBJ  sysTime;
-    SYS_MODULE_OBJ  drvMemory0;
     SYS_MODULE_OBJ  sysConsole0;
 
     /* SPI0 Driver Object */

@@ -32,6 +32,13 @@ children:
       children:
       - type: User
         attributes: {value: '3'}
+  - type: Boolean
+    attributes: {id: TIMER_SLAVE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tmr3, value: 'false'}
   - type: Float
     attributes: {id: TIMER_TIME_PERIOD_MS}
     children:
@@ -41,9 +48,24 @@ children:
         attributes: {id: max}
         children:
         - {type: Value, value: '52.4296'}
+  - type: File
+    attributes: {id: TMR_HEADER1}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
   - type: Boolean
     attributes: {id: TMR_INTERRUPT_MODE}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
     - type: Values
       children:
       - type: Dynamic
@@ -55,5 +77,14 @@ children:
       children:
       - type: Dynamic
         attributes: {id: tmr3, value: '16'}
+  - type: File
+    attributes: {id: TMR_SOURCE}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
 - type: ElementPosition
-  attributes: {x: '30', y: '720', id: tmr3}
+  attributes: {x: '31', y: '745', id: tmr3}

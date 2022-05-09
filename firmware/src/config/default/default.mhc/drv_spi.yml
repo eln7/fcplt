@@ -27,6 +27,8 @@ children:
     children:
     - type: Values
       children:
+      - type: Dynamic
+        attributes: {id: drv_spi, value: Synchronous}
       - type: User
         attributes: {value: Synchronous}
   - type: File

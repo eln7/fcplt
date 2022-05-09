@@ -4,10 +4,7 @@
 
 #include "eln_menu.h"
 
-
 std::map< int, std::string > eln_main_menu;
-
-
 
 void testing_stl(void)
 {

@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #include "definitions.h"
 
+/*
+void _mon_putc (char);
+
+void _putchar(char character)
+{
+  _mon_putc (character);
+}
+*/
 int main ( void )
 {
     SYS_Initialize ( NULL );
@@ -14,10 +22,12 @@ int main ( void )
         printf("\n\nTime system service is ready.\n");
     }
 
-    printf( "%08x-%08x\n", (NVM_START_ADDRESS & ~(0x200-1)) & 0x1FFFFFFF, (((NVM_START_ADDRESS + 0x40000) & ~(0x200-1))-1)  & 0x1FFFFFFF );
+/*    printf( "%08x-%08x\n", (NVM_START_ADDRESS & ~(0x200-1)) & 0x1FFFFFFF, (((NVM_START_ADDRESS + 0x40000) & ~(0x200-1))-1)  & 0x1FFFFFFF );
     printf( "Flash Start(BMXPUPBA):%08x\n", BMXPUPBA);
     printf( "Flash Size(BMXPFMSZ):%08x\n", BMXPFMSZ);
+ **/
 
+    /*
     printf("\nNVM %s", NVM_IsBusy()? "not Ready!!!\n": "is Ready\n");
 
     for(int i = 0; i < 10; i++){
@@ -29,7 +39,7 @@ int main ( void )
             );
         }
     }
-
+    */
     //GPIO_PinInterruptCallbackRegister( CN8_PIN, (GPIO_PIN_CALLBACK)rotary_encoder_handler, 0);
     //GPIO_PinInterruptEnable(CN8_PIN);
     
@@ -38,6 +48,10 @@ int main ( void )
 
     //GPIO_PinInterruptCallbackRegister( CN10_PIN, (GPIO_PIN_CALLBACK)rotary_encoder_handler, 0);
     //GPIO_PinInterruptEnable(CN10_PIN);
+    
+    printf("sizeof(float): %u\n", sizeof(float));
+    printf("sizeof(double): %u\n", sizeof(double));
+    printf("%f\n", 3.14);
 
     while ( true )  {
         SYS_Tasks ( );

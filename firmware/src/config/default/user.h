@@ -36,7 +36,9 @@ extern "C" {
 #define     ELN_DELAY 2000
     
 #include "LCD.h"
-    
+#define PRINTF_SUPPORT_FLOAT 1
+//#include <printf.h>
+  
 
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus

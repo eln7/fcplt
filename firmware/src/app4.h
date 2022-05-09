@@ -4,7 +4,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
+#undef printf
 #include <stdlib.h>
+#include <math.h>
 #include "configuration.h"
 #include "definitions.h"
 

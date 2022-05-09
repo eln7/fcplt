@@ -98,39 +98,6 @@
 // Section: Driver Initialization Data
 // *****************************************************************************
 // *****************************************************************************
-// <editor-fold defaultstate="collapsed" desc="DRV_MEMORY Instance 0 Initialization Data">
-
-static uint8_t gDrvMemory0EraseBuffer[NVM_ERASE_BUFFER_SIZE] CACHE_ALIGN;
-
-static DRV_MEMORY_CLIENT_OBJECT gDrvMemory0ClientObject[DRV_MEMORY_CLIENTS_NUMBER_IDX0];
-
-
-const DRV_MEMORY_DEVICE_INTERFACE drvMemory0DeviceAPI = {
-    .Open               = DRV_NVM_Open,
-    .Close              = DRV_NVM_Close,
-    .Status             = DRV_NVM_Status,
-    .SectorErase        = DRV_NVM_SectorErase,
-    .Read               = DRV_NVM_Read,
-    .PageWrite          = DRV_NVM_PageWrite,
-    .EventHandlerSet    = (DRV_MEMORY_DEVICE_EVENT_HANDLER_SET)DRV_NVM_EventHandlerSet,
-    .GeometryGet        = (DRV_MEMORY_DEVICE_GEOMETRY_GET)DRV_NVM_GeometryGet,
-    .TransferStatusGet  = (DRV_MEMORY_DEVICE_TRANSFER_STATUS_GET)DRV_NVM_TransferStatusGet
-};
-
-const DRV_MEMORY_INIT drvMemory0InitData =
-{
-    .memDevIndex                = 0,
-    .memoryDevice               = &drvMemory0DeviceAPI,
-    .isMemDevInterruptEnabled   = true,
-    .memDevStatusPollUs         = 0,
-    .isFsEnabled                = true,
-    .deviceMediaType            = (uint8_t)SYS_FS_MEDIA_TYPE_NVM,
-    .ewBuffer                   = &gDrvMemory0EraseBuffer[0],
-    .clientObjPool              = (uintptr_t)&gDrvMemory0ClientObject[0],
-    .nClientsMax                = DRV_MEMORY_CLIENTS_NUMBER_IDX0
-};
-
-// </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="DRV_SPI Instance 0 Initialization Data">
 
 /* SPI Client Objects Pool */
@@ -146,13 +113,13 @@ const DRV_SPI_PLIB_INTERFACE drvSPI0PlibAPI = {
     .writeRead = (DRV_SPI_PLIB_WRITE_READ)SPI1_WriteRead,
 
     /* SPI PLIB Transfer Status function */
-    .isBusy = (DRV_SPI_PLIB_IS_BUSY)SPI1_IsBusy,
+    .isTransmitterBusy = (DRV_SPI_PLIB_TRANSMITTER_IS_BUSY)SPI1_IsTransmitterBusy,
 
     /* SPI PLIB Callback Register */
     .callbackRegister = (DRV_SPI_PLIB_CALLBACK_REGISTER)SPI1_CallbackRegister,
 };
 
-const uint32_t drvSPI0remapDataBits[]= { 0x00000000, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000400 };
+const uint32_t drvSPI0remapDataBits[]= { 0x00000000, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000400, 0x00000800 };
 const uint32_t drvSPI0remapClockPolarity[] = { 0x00000000, 0x00000040 };
 const uint32_t drvSPI0remapClockPhase[] = { 0x00000000, 0x00000100 };
 
@@ -174,11 +141,6 @@ const DRV_SPI_INIT drvSPI0InitData =
     /* SPI Client Objects Pool */
     .clientObjPool = (uintptr_t)&drvSPI0ClientObjPool[0],
 
-    /* DMA Channel for Transmit */
-    .dmaChannelTransmit = SYS_DMA_CHANNEL_NONE,
-
-    /* DMA Channel for Receive */
-    .dmaChannelReceive  = SYS_DMA_CHANNEL_NONE,
 
 };
 
@@ -198,68 +160,6 @@ SYSTEM_OBJECTS sysObj;
 // Section: Library/Stack Initialization Data
 // *****************************************************************************
 // *****************************************************************************
-// <editor-fold defaultstate="collapsed" desc="File System Initialization Data">
-
-const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
-{
-    {
-        .mountName = SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0,
-        .devName   = SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0,
-        .mediaType = SYS_FS_MEDIA_TYPE_IDX0,
-        .fsType   = SYS_FS_TYPE_IDX0
-    },
-};
-
-
-const SYS_FS_FUNCTIONS FatFsFunctions =
-{
-    .mount             = FATFS_mount,
-    .unmount           = FATFS_unmount,
-    .open              = FATFS_open,
-    .read              = FATFS_read,
-    .close             = FATFS_close,
-    .seek              = FATFS_lseek,
-    .fstat             = FATFS_stat,
-    .getlabel          = FATFS_getlabel,
-    .currWD            = FATFS_getcwd,
-    .getstrn           = FATFS_gets,
-    .openDir           = FATFS_opendir,
-    .readDir           = FATFS_readdir,
-    .closeDir          = FATFS_closedir,
-    .chdir             = FATFS_chdir,
-    .chdrive           = FATFS_chdrive,
-    .write             = FATFS_write,
-    .tell              = FATFS_tell,
-    .eof               = FATFS_eof,
-    .size              = FATFS_size,
-    .mkdir             = FATFS_mkdir,
-    .remove            = FATFS_unlink,
-    .setlabel          = FATFS_setlabel,
-    .truncate          = FATFS_truncate,
-    .chmode            = FATFS_chmod,
-    .chtime            = FATFS_utime,
-    .rename            = FATFS_rename,
-    .sync              = FATFS_sync,
-    .putchr            = FATFS_putc,
-    .putstrn           = FATFS_puts,
-    .formattedprint    = FATFS_printf,
-    .testerror         = FATFS_error,
-    .formatDisk        = (FORMAT_DISK)FATFS_mkfs,
-    .partitionDisk     = FATFS_fdisk,
-    .getCluster        = FATFS_getclusters
-};
-
-
-const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
-{
-    {
-        .nativeFileSystemType = FAT,
-        .nativeFileSystemFunctions = &FatFsFunctions
-    }
-};
-
-// </editor-fold>
-
 
 
 // *****************************************************************************
@@ -389,8 +289,6 @@ void SYS_Initialize ( void* data )
 
     OCMP2_Initialize();
 
-    NVM_Initialize();
-
     OCMP3_Initialize();
 
     CORETIMER_Initialize();
@@ -410,8 +308,6 @@ void SYS_Initialize ( void* data )
 
     RTCC_Initialize();
 
-    sysObj.drvMemory0 = DRV_MEMORY_Initialize((SYS_MODULE_INDEX)DRV_MEMORY_INDEX_0, (SYS_MODULE_INIT *)&drvMemory0InitData);
-
     /* Initialize SPI0 Driver Instance */
     sysObj.drvSPI0 = DRV_SPI_Initialize(DRV_SPI_INDEX_0, (SYS_MODULE_INIT *)&drvSPI0InitData);
 
@@ -423,9 +319,6 @@ void SYS_Initialize ( void* data )
     sysObj.sysDebug = SYS_DEBUG_Initialize(SYS_DEBUG_INDEX_0, (SYS_MODULE_INIT*)&debugInit);
 
 
-
-    /*** File System Service Initialization Code ***/
-    SYS_FS_Initialize( (const void *) sysFSInit );
 
 
     APP_Initialize();

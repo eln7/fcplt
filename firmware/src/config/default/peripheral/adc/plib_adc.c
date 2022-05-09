@@ -56,7 +56,7 @@ void ADC_Initialize(void)
     AD1CON1 = 0xe4;
     AD1CON2 = 0x3d;
     AD1CON3 = 0xa00;
-    AD1CHS = 0x1010000;
+    AD1CHS = 0x1000000;
 
 
     /* Turn ON ADC */

@@ -3,6 +3,9 @@
 APP4_DATA app4Data;
 DRV_HANDLE spi1 =  DRV_HANDLE_INVALID;
 
+int testVolts[] = {0, 1, 127, 255, 511, 1023, 2047, 4095};
+int testIndex = 0;
+
 stSysValue g_stValue[] = {
     [0] = {.m_iDefault = 0, .m_iCurrent = 4, .m_iSet = 8, .m_iMin = 0, .m_iMax = 100, "%d"},
     [1] = {.m_iDefault = 1, .m_iCurrent = 5, .m_iSet = 9, .m_iMin = 0, .m_iMax = 100, "%d"},
@@ -207,25 +210,10 @@ void LCD_Render( void )
  
     char buff[128] = {0,};
     time_t current_time =  time(NULL);
-    //printf("ctime: %s\n", ctime(&current_time));
-    //ctime(&current_time);
-    
     struct tm * tm_gtime = gmtime(&current_time);
-    // strftime(buff, sizeof(buff), "%H:%M:%S", tm_gtime);
-    //printf("strftime: %u:%u:%u\n", tm_gtime->tm_hour, tm_gtime->tm_min, tm_gtime->tm_sec);
-    //printf( "CORETIMER_FrequencyGet: %u\n", CORETIMER_FrequencyGet());
-    //printf( "sizeof(buff): %u\n", sizeof(buff));
-    //printf( "current_time: %u\n", current_time);
-
+    strftime(buff, sizeof(buff), "%H:%M:%S", tm_gtime);
     LCD_Move(0,0);
-    sprintf(buf, "%.02u:%.02u:%.02u, tasks: %u", 
-            tm_gtime->tm_hour, 
-            tm_gtime->tm_min, 
-            tm_gtime->tm_sec, 
-            uxTaskGetNumberOfTasks()
-    );
-
-    //sprintf( buf, "%s", buff);
+    sprintf( buf, "%s ", buff);
     LCD_WriteString(buf);
     
     LCD_Move(1,0);
@@ -255,12 +243,49 @@ void LCD_Render( void )
 */
 
     LCD_Move(3,0);
-    //uint32_t value_a0 = ADC_ResultGet(ADC_INPUT_POSITIVE_AN0);
+    uint32_t value_a0 = ADC_ResultGet(ADC_INPUT_POSITIVE_AN0);
     uint32_t value_a1 = ADC_ResultGet(ADC_INPUT_POSITIVE_AN1);
+    //uint32_t value_a1 = ADC_ResultGet(ADC_INPUT_POSITIVE_AN1);
     //uint32_t value_a13 = ADC_ResultGet(ADC_INPUT_POSITIVE_AN13);
-    sprintf( buf, "A0:%05u, V:%05d", value_a1, app4Data.menu->index);
-    LCD_WriteString(buf);
     
+#define N 10000
+#define AVG_COUNT 60
+    
+    static int c = 1;
+
+    double DACref = 2.498;
+    int DACbits = (1 << 12);
+    double DACres = DACref / DACbits;
+    double vSet = DACres * testVolts[app4Data.menu->index % (sizeof(testVolts)/sizeof(int))];
+    
+    double ADCref = 3.5;
+    int ADCbits = (1 << 10);
+    double ADCres = ADCref / ADCbits;
+    double vOut = ADCres * value_a0;
+    double ADCa1 = ADCres * value_a1;
+
+    double vOutAvg = 0.0;
+
+    static double avgVals[AVG_COUNT] = {0,};
+    avgVals[c % AVG_COUNT] = vOut;
+    for(int i = 0; i < AVG_COUNT; i++)
+        vOutAvg += avgVals[i];
+    c++;
+   
+    if( !(c % (AVG_COUNT*2))){
+        printf("%s, volts: %3.4f, set: %3.4f, delta: %3.4f, a1: %3.4f\n",
+            buff,
+            vOutAvg / AVG_COUNT,
+            vSet,
+            (vOutAvg / AVG_COUNT) - vSet,
+            ADCa1-DACref
+        );
+        //printf("%lf\n", vOutAvg / AVG_COUNT);
+    }
+        
+    sprintf( buf, "V:%2.4f, S:%2.4f", vOutAvg / AVG_COUNT, vSet );
+    LCD_WriteString(buf);
+
 //    int i = 0;
 
     //printf("$%u %u;", value_a0*20, value_a13 );
@@ -271,13 +296,12 @@ void LCD_Render( void )
         printf("%d%c", ADC_ResultGet(i), (i<15)?' ':';');
     }*/
     //printf("\n");
+
+    OCMP2_CompareSecondaryValueSet(app4Data.menu->index);
+
     
-    OCMP2_CompareSecondaryValueSet(5000);
-    
-    MCP492XanalogWrite( 0, 0, 1, 1, app4Data.menu->index);
-    
-    
-    
+    MCP492XanalogWrite( 0, 1, 1, 1, testVolts[app4Data.menu->index % (sizeof(testVolts)/sizeof(int))]);
+
 /*    if(!SPI1_IsBusy()){
         printf("SPI1 is not busy\n");
         
@@ -354,6 +378,8 @@ void Active_Menu_Item_Reset(MenuItem *item){
 void Render_File_System_Info(){
     char CACHE_ALIGN  buffer[256] = {0,};
     uint8_t CACHE_ALIGN work[512] = {0,};
+/*    
+
     SYS_FS_FORMAT_PARAM opt = { 0, };
     
     if(app4Data.downBtn){
@@ -417,8 +443,6 @@ void Render_File_System_Info(){
     printf("Directory read:%s (%u)\n", *stat.lfname==0?stat.fname:stat.lfname, stat.fsize);
     
     //SYS_FS_HANDLE SYS_FS_DirOpen(const char* path);
-
-/*
     
     SYS_FS_HANDLE fh = SYS_FS_DirOpen(buffer);
 
@@ -449,8 +473,11 @@ void Render_File_System_Info(){
     {
         printf("FATFS_opendir Failed!!!\n");
     }
- */
+/*
 }
+
+
+/*
 
 void Active_Free_Sectors(MenuItem * item){
     char CACHE_ALIGN  buffer[256] = {0,};
